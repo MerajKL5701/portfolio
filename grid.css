@@ -1,0 +1,144 @@
+*{
+    margin: 0;padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    /* outline: green solid 2px; */
+}
+/* root  */
+:root{
+    --color:180;
+}
+/* container  */
+.container {
+    display: grid;
+    grid-template-columns: 300px repeat(3, 412px);
+    grid-gap: 5px;
+    transition: 1000ms;
+    background-color: hsl(var(--color), 100%, 50%);
+    grid-template-rows: 100vh 500px calc(100vh - 100px) 250px 250px 100vh;
+    height: 10000px;
+    grid-template-areas: 
+    "hero hero hero hero"
+    "side abt abt abt"
+    "side skl skl skl"
+    "side  weak edu exp"
+    "side  str edu exp"
+    "side port port port"
+    ;
+}
+/* all sections  */
+section{
+    background-color: hsl(0, 0%, 0%);
+    /* outline: hsl(var(--color), 100%, 50%) 2px solid; */
+}
+/* hero  */
+.jhero {
+    grid-area: hero;
+    /* background-color: hsl(var(--color), 100%, 50%); */
+    position: relative;
+}
+/* Background Styles */
+.whiteboard {
+    background-color: black;
+    /* height: 100dvh; */
+    height: 100%;
+    overflow: hidden;
+    grid-row: 1/1;
+    grid-column: 1/1;
+    z-index: 1;
+    rotate: 180deg; /* Rotation of the whiteboard */
+}
+
+/* Marker Styles */
+.marker {
+    height: 100%;
+    width: 1px;
+    position: relative;
+    transition: 2000ms height;
+    display: inline-block;
+}
+/* nav  */
+ 
+.nav{
+    background-color: hsla(var(--color), 100%, 50%,1);
+    height: 70px;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    position: absolute;
+
+    bottom: 0px;
+    transition: 1000ms;
+}
+.jhero .navfixed{
+    position: fixed;
+    
+    top: 0px;
+    background-color: hsla(0, 0%, 0%,0.8);
+}
+.nav .links{
+    position: absolute;
+    right: 50px;
+    translate: 0% 50%;
+}
+.nav a{
+/* padding: 20px; */
+font-size: 30px;
+/* width: 100px; */
+padding: 10px 20px 10px 20px;
+transition: 1000ms;
+border-radius: 5%;
+text-decoration: none;
+color: white;
+text-transform: capitalize;
+background-color: hsl(0, 100%, 0%);
+color: hsl(var(--color), 100%, 50%);
+}
+ .links:hover a{
+    color:transparent;
+}
+.nav .links a:hover{
+    color: hsl(var(--color), 100%, 50%);
+    transform: scale(2);
+}
+/* sidebar  */
+.sidebar{
+    grid-area: side;
+}
+/* about  */
+.about{
+    grid-area: abt;
+    
+}
+.skill {
+    grid-area: skl;
+}
+.weak{
+    grid-area: weak;
+}
+.strong{
+    grid-area: str;
+}
+.education{
+    grid-area: edu;
+}
+.experiance{
+    grid-area: exp;
+}
+.projects{
+    grid-area: port;
+}
+@media screen and (max-width:800px) {
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50dvh 100px;
+        grid-template-areas: "hero" "str";
+    }
+    .nav{
+        height: 30px;
+    }
+    .links a{
+        font-size: 15px;
+        padding: 5px 10px 5px 10px;
+    }
+}
